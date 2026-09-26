@@ -1,0 +1,60 @@
+{
+  "image": "us-central1-docker.pkg.dev/proforma-prod/proforma/repository-workload@sha256:4a1f4d3494b9bab2b9f3b88cad99d4111e69bc940a4b425e4c97da16753a99c0",
+  "runtimeRelease": "canary-20260926",
+  "isolation": "container",
+  "revision": null,
+  "budgets": {
+    "cpu": 0.5,
+    "memoryMiB": 256,
+    "pids": 64,
+    "diskMiB": 32,
+    "commandTimeoutMs": 30000,
+    "outputBytes": 32768
+  },
+  "commands": [
+    {
+      "id": "syntax",
+      "kind": "check",
+      "argv": [
+        "node",
+        "scripts/check.mjs"
+      ],
+      "cwd": ".",
+      "timeoutMs": 15000
+    },
+    {
+      "id": "build",
+      "kind": "check",
+      "argv": [
+        "node",
+        "scripts/build.mjs"
+      ],
+      "cwd": ".",
+      "timeoutMs": 15000
+    },
+    {
+      "id": "state-tests",
+      "kind": "check",
+      "argv": [
+        "node",
+        "--test",
+        "tests/board.test.mjs"
+      ],
+      "cwd": ".",
+      "timeoutMs": 15000
+    },
+    {
+      "id": "http-checks",
+      "kind": "check",
+      "argv": [
+        "node",
+        "tests/http.test.mjs"
+      ],
+      "cwd": ".",
+      "timeoutMs": 20000
+    }
+  ],
+  "network": {
+    "mode": "none"
+  }
+}

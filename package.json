@@ -1,0 +1,14 @@
+{
+  "name": "dayboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "lint": "node scripts/check.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/board.test.mjs && node tests/http.test.mjs",
+    "start": "node scripts/server.mjs"
+  }
+}

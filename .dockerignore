@@ -1,0 +1,6 @@
+*
+!dist/
+!dist/**
+!scripts/
+!scripts/server.mjs
+!package.json
