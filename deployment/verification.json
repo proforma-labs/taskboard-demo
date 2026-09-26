@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "application": "Dayboard",
+  "source": {
+    "repositoryUrl": "https://github.com/proforma-labs/taskboard-demo",
+    "commitSha": "f749dd4cdf32a50ab810f0442972ac13d0b887b7"
+  },
+  "url": "https://proforma-dayboard-igmn6rk4yq-uc.a.run.app",
+  "revision": "proforma-dayboard-f749dd4",
+  "manifest": {
+    "schemaVersion": 1,
+    "application": "Dayboard",
+    "assets": [
+      {
+        "path": "/app.js",
+        "bytes": 13002,
+        "sha256": "6c2d78f58659986ff1e61a88efc7ed67794c4ccbc592798e8c90a85d2a07e249"
+      },
+      {
+        "path": "/board.js",
+        "bytes": 4791,
+        "sha256": "144b3b7db7ee574afc4f87173fbc36b74844bb2b89395c2e6e5927af740230e1"
+      },
+      {
+        "path": "/index.html",
+        "bytes": 8052,
+        "sha256": "669167f28774f4da2b94587486e1bfb0f191285a8c1903bc3901a786242ba12c"
+      },
+      {
+        "path": "/styles.css",
+        "bytes": 15751,
+        "sha256": "1c93f3747efdb20f769f652bf8c07cb3a22b7b1dbdd74f5267d2059f5a448646"
+      }
+    ]
+  },
+  "checks": {
+    "syntaxModules": 7,
+    "stateTestsPassed": 8,
+    "httpPassed": true,
+    "liveAssetsMatchCloudBuild": true,
+    "liveBrowserVerification": {
+      "status": "passed",
+      "evidenceSource": "Observed by the release operator in the live deployed application.",
+      "createTask": "passed",
+      "editTask": "passed",
+      "moveTaskStatus": "passed",
+      "search": "passed",
+      "priorityFilter": "passed",
+      "reloadPersistence": "passed",
+      "deleteAndUndo": "passed",
+      "consoleWarnings": 0,
+      "consoleErrors": 0,
+      "responsive": {
+        "status": "passed",
+        "mobile": {
+          "width": 390,
+          "height": 844,
+          "bodyScrollWidth": 390,
+          "documentScrollWidth": 390,
+          "taskCardsPresent": 8,
+          "singleColumnScreenshot": "passed",
+          "addTaskDialogAllControlsAndButtonsVisible": true,
+          "dialogCancel": "passed"
+        },
+        "desktopRestored": {
+          "width": 1280,
+          "documentWidth": 1280,
+          "horizontalOverflow": false,
+          "dialogClosed": true
+        }
+      }
+    }
+  },
+  "timing": {
+    "vmCreationToFirstCommandMs": 25819,
+    "vmCreationToAllChecksCompleteMs": 30944,
+    "assignmentDurationMs": 42683,
+    "includesDiagnosticRedeployment": false
+  },
+  "temporaryRunnerVmAndDiskDeleted": true,
+  "automaticNativeDeployment": false,
+  "publication": "Explicit trusted release after comparing cloud build hashes to the pinned source and hosting image.",
+  "limitations": [
+    "Task state is stored in this browser on this device. No shared backend, account sync, multi-user collaboration, or server backup is implemented; clearing browser storage removes the board.",
+    "The repository cloud runner verified and built the pinned source. Persistent publication used a separate trusted-host release; native automatic deployment and remote build-artifact export are not claimed.",
+    "Browser interaction checks were performed on the public deployment by the release operator; the disabled native repository-browser acceptance gate was not exercised.",
+    "These cold-start timings describe one successful run, not a performance guarantee."
+  ]
+}
