@@ -31,6 +31,24 @@ Open `http://localhost:8080`. The build writes four static assets and a determin
 
 Deployment credentials stay outside the repository workload. A trusted host reproduces the build at that same SHA, verifies every output hash against the runner manifest, then publishes the exact assets using `Dockerfile`. The service runs as a non-root user with a dedicated identity, no project data roles or mounted secrets, minimum instances zero and maximum one.
 
-The current Proforma runner does not automatically publish applications. This demonstration uses an explicit build/verify/release handoff. A public Cloud Run app is a persistent deployment, separate from Proforma's temporary private repository previews.
+The published demonstration used an explicit build/verify/release handoff. This
+branch prepares its container for Proforma's queued repository App release path;
+a new deployment still requires a configured hosting target and a verified release
+receipt. A public Cloud Run app is a persistent deployment, separate from
+Proforma's temporary private repository previews.
+
+The image declares numeric user `1000:1000` and includes the existing source and
+tests, allowing the release runner to execute these checks against the same image
+it will deploy:
+
+```sh
+node --test tests/board.test.mjs
+node tests/http.test.mjs
+```
+
+Both checks support a read-only root filesystem and disabled external networking.
+The HTTP check starts its own loopback server and confirms that source, package
+metadata and server scripts are not publicly served. See the
+[container release preparation plan](plans/proforma-container-release.md).
 
 This is a browser-local task board: it has no shared database, account synchronization or server backup. Use it on the same browser and device to retain your tasks.
