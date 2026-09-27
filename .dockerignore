@@ -4,3 +4,7 @@
 !scripts/
 !scripts/server.mjs
 !package.json
+!src/
+!src/**
+!tests/
+!tests/**

@@ -3,7 +3,9 @@ WORKDIR /app
 COPY --chown=node:node package.json ./
 COPY --chown=node:node scripts/server.mjs ./scripts/server.mjs
 COPY --chown=node:node dist ./dist
-USER node
+COPY --chown=node:node src ./src
+COPY --chown=node:node tests ./tests
+USER 1000:1000
 ENV NODE_ENV=production PORT=8080
 EXPOSE 8080
 CMD ["node", "scripts/server.mjs"]
